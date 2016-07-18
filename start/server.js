@@ -1,7 +1,21 @@
-var user = require('./user');
+var log = require("logger")(module);
 
-var vasya = new user.User("Vasya");
-var petya = new user.User("Petya");
+var db = require("db");
+db.connect();
 
-vasya.hello(petya);
+var User = require('./user');
 
+function run() {
+    var vasya = new User("Vasya");
+    var petya = new User("Petya");
+
+    vasya.hello(petya);
+    
+    log(db.getPhrase("Load successful"));
+}
+
+if(module.parent) {
+    exports.run = run;
+} else {
+    run();
+}
