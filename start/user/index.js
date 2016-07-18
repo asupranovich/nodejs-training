@@ -7,7 +7,7 @@ function User(name) {
 
 User.prototype.hello = function(who) {
     log(db.getPhrase("Hello") + ", " + who.name);
-}
+};
 
 log("user.js is required!");
 

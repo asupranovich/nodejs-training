@@ -10,11 +10,11 @@ function run() {
     var petya = new User("Petya");
 
     vasya.hello(petya);
-    
+
     log(db.getPhrase("Load successful"));
 }
 
-if(module.parent) {
+if (module.parent) {
     exports.run = run;
 } else {
     run();
